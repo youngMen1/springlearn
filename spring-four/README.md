@@ -1,9 +1,8 @@
 # spring4.0学习
-![](doc/image/微信截图_20190727172117.png)
+![img](doc/image/微信截图_20190727172117.png)
 ##第一章 Spring 基础
 
-
-
+---
 ##第二章 Spring 常用配置
 ###2.1 Bean 的 Scope
    * @Scope("singleton") 单例  默认值
@@ -33,5 +32,5 @@ Spring 的事件需要遵循如下流程
    
    
    
-   
+---
 ##第三章 Spring 高级话题
