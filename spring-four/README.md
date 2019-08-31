@@ -5,6 +5,7 @@
 ##第一章 Spring 基础
 
 ---
+
 ##第二章 Spring 常用配置
 ###2.1 Bean 的 Scope
    * @Scope("singleton") 单例  默认值
@@ -31,8 +32,51 @@ Spring 的事件需要遵循如下流程
    1. 自定义事件, 集成 ApplicationEvent
    2. 定义事件监听器, 实现 ApplicationListener
    3. 使用容器发布事件
-   
-   
-   
+
 ---
-##第三章 Spring 高级话题
+   
+###第三章 Spring 高级话题
+#### 3.1 Spring Aware
+使用 Spring Aware 让你的 Bean 和 Spring 框架耦合
+
+| 名称        | 作用           |
+| ------------- |:-------------:|
+|BeanNameAware  |获取到容器中的 Bean 的名称|
+|BeanFactoryAware|获取当前 bean factory, 这样可以调用容器的服务|
+|ApplicationContextAware*|当前的 application context， 这样可以调用容器的服务|
+|MessageSourceAware|获得 message source, 这样可以获取文本信息|
+|ApplicationEventPublisherAware|应用事件发布器, 可以发布事件|
+|ResourceLoaderAware|获取资源加载器, 可以获得外部资源文件|
+
+####3.2 多线程
+Spring 通过任务执行器 (TaskExecutor) 来实现多线程和并发编程. 使用 ThreadPoolTaskExecutor 可实现一个基于线程的 TaskExecutor. 在配置类中通过@EnableAsync 开启对异步任务的支持, 并通过在实际执行的 Bean 的方法中使用@Async 注解来声明其是一个异步任务
+
+####3.3 计划任务
+   * 对计划任务提供支持
+   * 使用 @EnableScheduling 开启计划任务支持
+   * 使用 @Scheduled 来注解计划任务的方法
+   
+####3.4 条件注解 @Conditional
+####3.5 组合注解与元注解
+####3.6 @Enable* 注解的工作原理
+
+##### 第一部分
+   * @EnableAspectJAutoProxy 开启对 AspectJ 自动代理的支持
+   * @EnableAsync 开启异步方法的支持
+   * @EnableScheduling 开启计划任务的支持
+   
+##### 第二部分
+   * @EnableWebMvc 开启 Web MVC 的配置支持
+   
+##### 第三部分
+   * @EnableConfigurationProperties 开启对 @ConfigurationProperties 注解配置 Bean 的支持
+   * @EnableJpaRepositories 开启对 Spring Data JPA Repository 的支持
+   * @EnableTransactionManagement 开启注解式事务的支持
+   * @EnableCaching 开启注解式的缓存支持
+    
+所有的@Enable*注解都有一个@Import 注解    
+   1. 直接导入配置类
+   2. 依据条件选择配置类
+   3. 动态注册 Bean
+   
+####3.7 测试
