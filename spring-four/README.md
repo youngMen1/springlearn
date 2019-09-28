@@ -53,7 +53,10 @@ Spring 的事件需要遵循如下流程
 |ResourceLoaderAware|获取资源加载器, 可以获得外部资源文件|
 
 #### 3.2 多线程
-Spring 通过任务执行器 (TaskExecutor) 来实现多线程和并发编程. 使用 ThreadPoolTaskExecutor 可实现一个基于线程的 TaskExecutor. 在配置类中通过@EnableAsync 开启对异步任务的支持, 并通过在实际执行的 Bean 的方法中使用@Async 注解来声明其是一个异步任务
+Spring 通过任务执行器 (TaskExecutor) 来实现多线程和并发编程. 
+使用 ThreadPoolTaskExecutor 可实现一个基于线程的 TaskExecutor. 
+在配置类中通过@EnableAsync 开启对异步任务的支持, 
+并通过在实际执行的 Bean 的方法中使用@Async 注解来声明其是一个异步任务
 
 #### 3.3 计划任务
 * 对计划任务提供支持
@@ -65,8 +68,11 @@ Spring 通过任务执行器 (TaskExecutor) 来实现多线程和并发编程. �
 #### 3.5 组合注解与元注解
 
 ##### 自定义注解
-使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。
-@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。
+使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，
+由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。
+@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。
+方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。
+可以通过default来声明参数的默认值。
 * 定义注解格式
  ```public @interface 注解名 {定义体} ```
 
