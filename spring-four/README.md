@@ -181,6 +181,11 @@ private BigDecimal wage;
 @Email  验证是否是邮件地址，如果为null,不进行验证，算通过验证。
 @ScriptAssert(lang= ,script=, alias=)
 @URL(protocol=,host=, port=,regexp=, flags=)
+
+@RequestParam有三个配置参数：
+required 表示是否必须，默认为 true，必须。
+defaultValue 可设置请求参数的默认值。
+value 为接收url的参数名（相当于key值
 ————————————————
    
 #### 3.7 测试
