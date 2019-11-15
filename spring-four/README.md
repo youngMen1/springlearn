@@ -114,9 +114,12 @@ Annotation类型
 
 * @Inherited：说明子类可以继承父类中的该注解
  
-
-
-
+* @PathVariable注解:
+@PathVariable("xxx")
+通过 @PathVariable 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“) 
+@RequestMapping(value=”user/{id}/{name}”)
+请求路径：http://localhost:8080/hello/show5/1/james
+————————————————
 
 #### 3.6 @Enable* 注解的工作原理
 
